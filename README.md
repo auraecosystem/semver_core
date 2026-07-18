@@ -2,7 +2,7 @@
 
 [![License: CC BY 4.0](https://shields.io)](https://creativecommons.org/licenses/by/4.0/)
 
-An ultra-fast, low-level [Semantic Versioning (SemVer)](https://semver.org) runtime engine written in C, Yacc, and Lex. This repository compiles a high-performance parsing pipeline optimized for evaluating package metadata and solving large-scale dependency graph restrictions efficiently.
+An ultra-fast, low-level [Semantic Versioning (SemVer)](https://[semver.org](https://regex101.com/r/p5S8cs/1)) runtime engine written in C, Yacc, and Lex. This repository compiles a high-performance parsing pipeline optimized for evaluating package metadata and solving large-scale dependency graph restrictions efficiently.
 
 ## 🚀 Key Features
 
@@ -129,7 +129,7 @@ valgrind --leak-check=full --show-leak-kinds=all ./bin/semver_core
 ```
 
 ---
-
+[regex](https://regex101.com/r/p5S8cs/1)
 ## 📜 License & Compliance
 
 Distributed under open systems architecture guidelines. Review the local `spec.txt` or `docs/ specifications` configurations for explicit syntax and grammar validation metrics.
