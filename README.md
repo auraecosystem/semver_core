@@ -2,7 +2,7 @@
 
 # SemVer Runtime Architecture Core
 
-An ultra-fast, low-level Semantic Versioning (SemVer 2.0.0) runtime engine written in C, Yacc, and Lex. This repository compiles a low-level parsing pipeline optimized for evaluating package metadata and solving large-scale dependency graph restrictions efficiently.
+An ultra-fast, low-level Semantic Versioning. is A runtime engine written in C, Yacc, and Lex. This repository compiles a low-level parsing pipeline optimized for evaluating package metadata and solving large-scale dependency graph restrictions efficiently.
 
 ## 🚀 Key Features
 
