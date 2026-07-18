@@ -1,0 +1,17 @@
+Registry
+
+publish(package)
+
+download(name, version)
+
+search(query)
+
+latest(name)
+
+versions(name)
+
+metadata(name)
+
+yank(name, version)
+
+verify(package)
