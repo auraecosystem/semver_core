@@ -69,7 +69,7 @@ gcc -O3 main.c parser/*.c compare/*.c constraint/*.c resolver/*.c -o bin/semver_
 Once you have run your local build commands, pass a mock version check argument down to verify operations:
 
 ```bash
-./bin/semver_core --compare "1.2.3" "^1.2.0"
+./bin/semver_core --compare "2.1.3" "^1.2.0"
 ```
 
     This work is licensed under Creative Commons Attribution 4.0 International. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/
