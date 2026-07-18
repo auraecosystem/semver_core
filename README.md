@@ -91,6 +91,7 @@ Then execute the solver manually to process a locked dependency array map output
 ```bash
 ./bin/semver_core --resolve Package.toml
 ```
+[examples.com](https://github.com/auraecosystem/semver_core.git)
 
 ---
 
