@@ -1,0 +1,21 @@
+Exact Version
+
+↓
+
+Compatible Range
+
+↓
+
+Highest Matching Version
+
+↓
+
+Stable Release Preferred
+
+↓
+
+Prerelease (only if requested)
+
+↓
+
+Reject Invalid Versions
