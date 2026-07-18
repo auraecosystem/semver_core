@@ -1,0 +1,15 @@
+loadManifest()
+
+loadRepository()
+
+resolve()
+
+resolvePackage()
+
+selectBestVersion()
+
+checkConflicts()
+
+buildDependencyGraph()
+
+install()
