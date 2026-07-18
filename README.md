@@ -71,6 +71,8 @@ Once you have run your local build commands, pass a mock version check argument 
 ./bin/semver_core --compare "1.2.3" "^1.2.0"
 ```
 
+    This work is licensed under Creative Commons Attribution 4.0 International. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/
+
 ### Mock Package Configuration
 The dependency resolver loops map module targets by reviewing local configuration rules. Setup a test `Package.toml` workspace manifest inside your runtime folders to start graphing allocations:
 
@@ -146,3 +148,5 @@ semver/
 ├── docs/
 └── spec/
 ```
+<a href="https://github.com/auraecosystem/semver_core">Semver_core</a> © 2025 by <a href="https://github.com/auraecosystem">Seriki Walter Yakub</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+
