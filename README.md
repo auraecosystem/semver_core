@@ -109,7 +109,7 @@ If you have Valgrind available on your system environment architecture, perform 
 ```bash
 valgrind --leak-check=full --show-leak-kinds=all ./bin/semver_core
 ```
-[semver_core](https://examoles.com/semver_core)
+[semver_core]([https://examples.com/page/s](https://www.examples.com/ai-menu-generator)semver_core)
 
 ---
 
