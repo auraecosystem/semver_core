@@ -1,0 +1,17 @@
+compareMajor()
+
+compareMinor()
+
+comparePatch()
+
+comparePrerelease()
+
+compareBuild()
+
+compare()
+
+equals()
+
+lessThan()
+
+greaterThan()
