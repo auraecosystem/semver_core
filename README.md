@@ -2,102 +2,60 @@
 
 [![License: CC BY 4.0](https://shields.io)](https://creativecommons.org/licenses/by/4.0/)
 
-An ultra-fast, low-level [Semantic Versioning (SemVer)](https://[semver.org](https://regex101.com/r/p5S8cs/1)) runtime engine written in C, Yacc, and Lex. This repository compiles a high-performance parsing pipeline optimized for evaluating package metadata and solving large-scale dependency graph restrictions efficiently.
+A high-performance, production-grade [Semantic Versioning (SemVer)](https://semver.org) runtime engine written in C, Yacc, and Lex. Provides fast, reliable version parsing, constraint evaluation, and dependency resolution.
 
-## 🚀 Key Features
+## 🚀 Features
 
-* **Compiler-Grade Tokenizer:** Built using Lex (`standard.lex`) to slice complex version constraint ranges efficiently.
-* **Grammar-Strict Parsing:** Backed by Backus-Naur Form grammar (`semver.bnf`) and compiled Yacc files to parse semantic expressions securely.
-* **Advanced Range Evaluator:** Handles mathematical operations, carets (`^`), tildes (`~`), wildcards, and compound conditions (e.g., `>=1.2.0 <2.0.0`).
-* **Graph Dependency Resolver:** Resolves overlapping nested module conflicts down into unified execution footprints.
+- **High-Performance Tokenizer** — Lex-based lexical analyzer for efficient version constraint parsing
+- **Strict Grammar-Based Parsing** — Yacc parser with Backus-Naur Form grammar for secure semantic expression handling
+- **Flexible Range Evaluation** — Supports caret (`^`), tilde (`~`), wildcards, and compound constraints (e.g., `>=1.2.0 <2.0.0`)
+- **Dependency Resolution** — Graph-based resolver for handling overlapping version constraints across nested dependencies
 
----
+## 📁 Project Structure
 
-## 📂 Repository Blueprint
-
-```text
-semver/
-├── compare/               # Mathematical order controllers
-│   └── comparator         # Base calculation utilities
-├── constraint/            # Rule range handlers
-│   ├── evaluator          # Range validation machines
-│   ├── parser             # Boundary expression parsing
-│   └── range              # High/Low version bounding boundaries
-├── docs/                  # Specifications and reference documentation
-├── grammar/               # Language grammar frameworks
-│   └── semver.bnf         # Formal Backus-Naur Form logic rules
-├── include/               # System definitions and headers
-│   └── semver.h           # Unified C runtime architecture maps
-├── parser/                # Syntax processor engines
-│   ├── lexer              # Word tokenizer mechanics
-│   ├── parser             # Node processing frameworks
-│   └── tokenizer          # Concrete character processing loops
-├── resolver/              # Topological sequence controllers
-│   └── dependency_resolver # Graph dependency calculation engine
-├── runtime/               # Core execution structures
-│   └── semver_runtime     # Entry execution system environments
-├── spec/                  # Verification metrics
-├── tests/                 # Test suites and harnesses
-└── validator/             # Version format alignment validations
+```
+semver_core/
+├── compare/              # Version comparison logic
+│   └── comparator.c      # Core comparison utilities
+├── constraint/           # Range constraint handling
+│   ├── evaluator.c       # Range validation
+│   ├── parser.c          # Constraint parsing
+│   └── range.c           # Range boundary management
+├── docs/                 # Documentation and specifications
+├── grammar/              # Parser grammar definitions
+│   └── semver.bnf        # Backus-Naur Form grammar
+├── include/              # Header files
+│   └── semver.h          # Core runtime definitions
+├── parser/               # Parsing engines
+│   ├── lexer.c           # Tokenizer
+│   ├── parser.c          # Parser implementation
+│   └── tokenizer.c       # Token processing
+├── resolver/             # Dependency resolution
+│   └── dependency_resolver.c
+├── runtime/              # Core execution
+│   └── semver_runtime.c  # Runtime environment
+├── spec/                 # Specifications
+├── tests/                # Test suites
+└── validator/            # Version format validation
 ```
 
----
-
-## 🛠️ Build and Compilation
+## 🛠️ Installation & Build
 
 ### Prerequisites
 
-Ensure your development environment includes:
-* A standard C compiler (`gcc` or `clang`)
-* `lex` / `flex` (Lexical Analyzer Generator)
-* `yacc` / `bison` (Parser Generator)
+- C compiler (`gcc` or `clang`)
+- `flex` (Lexical Analyzer Generator)
+- `bison` (Parser Generator)
 
-### Local Assembly
-
-Compile the engine binary files through your shell:
+### Compilation
 
 ```bash
-# Clean previous targets and recompile lexer and parser definitions
+# Generate lexer and parser from definitions
 flex standard.lex
 yacc -d semver.bnf
 
-# Build the runtime source files
-gcc -O3 main.c parser/*.c compare/*.c constraint/*.c resolver/*.c -o bin/semver_core
-```
-
----
-
-## 💻 Usage & Verification
-
-### Version Comparison
-Pass a mock version check argument to verify operations:
-
-```bash
-./bin/semver_core --compare "2.1.3" "^1.2.0"
-```
-
-### Dependency Resolution
-The dependency resolver maps module targets by reviewing local configuration rules. Setup a test `Package.toml` workspace manifest inside your runtime folders to map allocations:
-
-```toml
-[package]
-name = "demo_app"
-version = "1.0.0"
-
-[dependencies]
-core_library = "^2.4.0"
-helper_plugin = ">=1.0.2 <1.5.0"
-```
-
-Execute the solver manually to process a locked dependency array map output file (`Lockfile.mkdn`):
-
-```bash
-./bin/semver_core --resolve Package.toml
-```
-
-```bash.zsh
-gcc \
-  -O3 \
+# Compile the runtime
+gcc -O3 \
   -Iinclude \
   runtime/*.c \
   parser/*.c \
@@ -108,33 +66,68 @@ gcc \
   lex.yy.c \
   semver.tab.c \
   -o bin/semver_core
-  ```
----
-
-```https://regex101.com/r/p5S8cs/1
-^(?P<major>0|[1-9]\d*)\.(?P<minor>0|[1-9]\d*)\.(?P<patch>0|[1-9]\d*)(?:-(?P<prerelease>(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+(?P<buildmetadata>[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$ gm
 ```
-## 🧪 Testing and Memory Audit
 
-### Runtime Debugging
-To confirm memory tracking integrity locally without external applications, uncomment the tracking wrappers mapping global definitions inside `semver.h`. This prints an active balance summary when closing execution loops:
+## 📖 Usage
+
+### Version Comparison
+
+Compare two versions against a constraint:
+
+```bash
+./bin/semver_core --compare "2.1.3" "^1.2.0"
+```
+
+### Dependency Resolution
+
+Create a `Package.toml` manifest:
+
+```toml
+[package]
+name = "my_app"
+version = "1.0.0"
+
+[dependencies]
+core_lib = "^2.4.0"
+utils = ">=1.0.2 <1.5.0"
+```
+
+Resolve dependencies:
+
+```bash
+./bin/semver_core --resolve Package.toml
+```
+
+This generates a `Lockfile.mkdn` with resolved versions.
+
+## 🧪 Testing
+
+### Memory Leak Detection
+
+Enable memory tracking in `semver.h` and call:
 
 ```c
-// At the conclusion of your test harness runtime lifecycle loop:
 report_memory_leaks();
 ```
 
 ### Valgrind Verification
-If you have Valgrind available on your system architecture, perform a deep byte inspection:
 
 ```bash
 valgrind --leak-check=full --show-leak-kinds=all ./bin/semver_core
 ```
 
----
-[regex](https://regex101.com/r/p5S8cs/1)
-## 📜 License & Compliance
+## 📋 SemVer Format
 
-Distributed under open systems architecture guidelines. Review the local `spec.txt` or `docs/ specifications` configurations for explicit syntax and grammar validation metrics.
+This engine supports the standard SemVer format:
 
-Semver_core © 2025 by [Seriki Walter Yakub](https://github.com/auraecosystem). This work is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
+```
+MAJOR.MINOR.PATCH[-PRERELEASE][+BUILD]
+```
+
+Example: `1.2.3-alpha.1+build.123`
+
+## 📜 License
+
+Licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
+
+© 2025 [Seriki Walter Yakub](https://github.com/auraecosystem)
