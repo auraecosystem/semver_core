@@ -1,0 +1,37 @@
+pkg init
+
+pkg install
+
+pkg uninstall
+
+pkg update
+
+pkg upgrade
+
+pkg publish
+
+pkg login
+
+pkg logout
+
+pkg search
+
+pkg info
+
+pkg list
+
+pkg graph
+
+pkg verify
+
+pkg doctor
+
+pkg cache clean
+
+pkg lock
+
+pkg resolve
+
+pkg version
+
+pkg tag
