@@ -95,6 +95,20 @@ Execute the solver manually to process a locked dependency array map output file
 ./bin/semver_core --resolve Package.toml
 ```
 
+```bash.zsh
+gcc \
+  -O3 \
+  -Iinclude \
+  runtime/*.c \
+  parser/*.c \
+  validator/*.c \
+  compare/*.c \
+  constraint/*.c \
+  resolver/*.c \
+  lex.yy.c \
+  semver.tab.c \
+  -o bin/semver_core
+  ```
 ---
 
 ## 🧪 Testing and Memory Audit
